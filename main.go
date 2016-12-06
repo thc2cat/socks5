@@ -7,8 +7,11 @@ import (
 	"github.com/armon/go-socks5"
 )
 
+// Most of the job is done with https://github.com/armon/go-socks5
+// Thanks armon.
+
 func main() {
-	// comment logWritter if you only want stdout logger
+	// comment this logWritter part if you only want stdout logger
 	logWriter, err := syslog.NewLogger(syslog.LOG_DAEMON|syslog.LOG_ERR, log.Lshortfile)
 	if err != nil {
 		panic(err)
@@ -24,7 +27,7 @@ func main() {
 		panic(err)
 	}
 
-	// Create SOCKS5 proxy on all ip4 interfaces port 8000
+	// Create SOCKS5 proxy on all ip4 interfaces port 1080
 	if err := server.ListenAndServe("tcp4", ":1080"); err != nil {
 		panic(err)
 	}
