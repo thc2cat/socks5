@@ -9,9 +9,9 @@ import (
 
 func main() {
 	// comment logWritter if you only want stdout logger
-	logWriter, err := syslog.NewLogger(syslog.LOG_DAEMON|syslog.LOG_ERR, 0)
+	logWriter, err := syslog.NewLogger(syslog.LOG_DAEMON|syslog.LOG_ERR, log.Lshortfile)
 	if err != nil {
-		log.Fatal("error")
+		panic(err)
 	}
 
 	// Create a SOCKS5 server
